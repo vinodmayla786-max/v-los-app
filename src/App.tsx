@@ -116,11 +116,15 @@ function App() {
           <div className="absolute top-0 left-0 w-full h-96 bg-indigo-500/10 blur-[100px] pointer-events-none"></div>
 
           <div className="relative z-10 flex-1">
-            <div className="mb-8">
-              <h1 className="text-4xl font-extrabold tracking-tighter text-white mb-2 flex items-center gap-3">
-                V LOS <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+           <div className="mb-10">
+              <h1 className="text-5xl font-extrabold tracking-tighter text-white flex items-center gap-3">
+                V LOS <span className="w-3 h-3 rounded-full bg-indigo-500 animate-pulse shadow-[0_0_15px_rgba(99,102,241,0.8)]"></span>
               </h1>
-              <p className="text-zinc-500 text-sm tracking-wide uppercase font-semibold">System Configuration</p>
+              <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-zinc-200 to-zinc-500 font-serif italic text-xl tracking-[0.15em] mt-2 mb-4 drop-shadow-sm">
+                V Life Operating System
+              </h2>
+              <div className="h-[1px] w-12 bg-indigo-500/50 mb-4"></div>
+              <p className="text-zinc-600 text-[10px] tracking-[0.3em] uppercase font-black">System Configuration</p>
             </div>
 
             <div className="flex gap-2 mb-8 bg-zinc-900/50 p-1 rounded-lg border border-zinc-800/80">
