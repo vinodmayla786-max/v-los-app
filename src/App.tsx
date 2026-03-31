@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { generatePlan } from './aiService';
 import { collection, addDoc, getDocs, query, orderBy } from "firebase/firestore"; 
 import { db } from './firebase'; 
@@ -219,7 +219,7 @@ function App() {
                       <XAxis dataKey="date" stroke="#52525b" fontSize={11} tickLine={false} axisLine={false} dy={10} />
                       <Tooltip content={<CustomTooltip />} cursor={{ fill: '#27272a', opacity: 0.4 }} />
                       <Bar dataKey="minutes" radius={[4, 4, 0, 0]} maxBarSize={50}>
-                        {chartData.map((entry, index) => (
+                        {chartData.map((_, index) => (
                           <Cell key={`cell-${index}`} fill={index === chartData.length - 1 ? '#6366f1' : '#3f3f46'} />
                         ))}
                       </Bar>
