@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Ensure your API key is correctly pulled from the environment
 // DHYAN DEIN: Yahan apni asli Gemini API key daalein jo "AIzaSy..." se shuru hoti hai
-const genAI = new GoogleGenerativeAI("AIzaSyB_B04dvkN6X3IlBfFrV1nlqiPiI");
+const genAI = new GoogleGenerativeAI("AIzaSyDU853fG_BO4dvkN6X3IlbfFrV1nlqiPiI");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export const generatePlan = async (
