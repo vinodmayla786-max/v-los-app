@@ -1,9 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Ab yahan koi asli key nahi dikhegi, ye Vercel se apne aap uthayega
+// Ye code Vercel se automatic key uthayega. Safe aur Secure!
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
-
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ 
+  model: "gemini-1.5-flash",
+  generationConfig: { temperature: 0.7, topP: 0.8 }
+});
 
 export const generatePlan = async (data: {
   goal: string,
@@ -14,12 +16,16 @@ export const generatePlan = async (data: {
   notes: string
 }) => {
   try {
-    const prompt = `You are V LOS, an elite productivity coach. Goal: ${data.goal}, Time: ${data.time} mins. Create a plan.`;
+    const prompt = `You are VANN BANN AI, an infinite intelligence architect. 
+    User Goal: ${data.goal}. Time: ${data.time} mins. 
+    Overcome: ${data.weakness}. Expertise: ${data.expertise}. 
+    Create a deep-focus execution plan with timestamps. 
+    Use a professional, motivating tone.`;
+
     const result = await model.generateContent(prompt);
-    const response = await result.response;
-    return response.text();
+    return result.response.text();
   } catch (error) {
-    console.error("AI Error:", error);
+    console.error("VANN BANN Error:", error);
     throw error;
   }
 };
