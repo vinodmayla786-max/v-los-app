@@ -2,7 +2,10 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Ye code Vercel se automatic key uthayega. Safe aur Secure!
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-pro",
+
+// 🔥 Yahan humne aapke kehne par GEMINI 2.0 FLASH laga diya hai 🔥
+const model = genAI.getGenerativeModel({ 
+  model: "gemini-2.0-flash",
   generationConfig: { temperature: 0.7, topP: 0.8 }
 });
 
