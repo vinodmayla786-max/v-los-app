@@ -24,7 +24,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-100 font-sans selection:bg-cyan-500/30">
-      {/* Header */}
       <header className="border-b border-white/10 py-6 px-4 bg-black/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
