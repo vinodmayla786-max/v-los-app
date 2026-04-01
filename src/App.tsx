@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Sparkles, Zap, Target, Brain, ArrowRight, Layers } from 'lucide-react';
+import { useState } from 'react';
+import { Sparkles, Target, Brain, ArrowRight, Layers } from 'lucide-react';
 import { generatePlan } from './aiService';
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-100 font-sans selection:bg-cyan-500/30">
-      {/* Header - VANN BANN Branding */}
+      {/* Header */}
       <header className="border-b border-white/10 py-6 px-4 bg-black/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -42,7 +42,6 @@ function App() {
       </header>
 
       <main className="max-w-4xl mx-auto py-12 px-4">
-        {/* Hero Section */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
             Architect Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Universe.</span>
@@ -52,7 +51,6 @@ function App() {
           </p>
         </div>
 
-        {/* Input Card */}
         <div className="bg-[#0A0A0A] border border-white/5 rounded-3xl p-8 shadow-2xl shadow-cyan-500/5 transition-all hover:border-cyan-500/20">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
@@ -63,22 +61,27 @@ function App() {
                 <input 
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors"
                   placeholder="e.g. Master HCS Mathematics Paper"
+                  value={formData.goal}
                   onChange={(e) => setFormData({...formData, goal: e.target.value})}
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Time (Mins)</label>
-                  <input type="number" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500"
+                  <input type="number" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 text-white"
                     onChange={(e) => setFormData({...formData, time: parseInt(e.target.value)})} value={formData.time}
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Energy</label>
-                  <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500"
+                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 text-gray-500">Energy Level</label>
+                  <select 
+                    className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 text-white"
+                    value={formData.energy}
                     onChange={(e) => setFormData({...formData, energy: e.target.value})}
                   >
-                    <option>High</option><option>Moderate</option><option>Low</option>
+                    <option value="High">High</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Low">Low</option>
                   </select>
                 </div>
               </div>
@@ -90,8 +93,9 @@ function App() {
                   <Brain size={14} className="text-blue-500" /> Neural Blockers (Weakness)
                 </label>
                 <input 
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors text-white"
                   placeholder="e.g. Procrastination, Complex Integration"
+                  value={formData.weakness}
                   onChange={(e) => setFormData({...formData, weakness: e.target.value})}
                 />
               </div>
@@ -107,7 +111,6 @@ function App() {
           </div>
         </div>
 
-        {/* Output Section */}
         {plan && (
           <div className="mt-12 bg-white/5 border border-cyan-500/30 rounded-3xl p-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-cyan-400">
