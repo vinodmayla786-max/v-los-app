@@ -1,11 +1,10 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Ye code Vercel se automatic key uthayega. Safe aur Secure!
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
 
-// 🔥 Yahan humne aapke kehne par GEMINI 2.0 FLASH laga diya hai 🔥
+// 🔥 Yahan humne wapas "gemini-1.5-flash" laga diya hai 🔥
 const model = genAI.getGenerativeModel({ 
-  model: "gemini-2.0-flash",
+  model: "gemini-1.5-flash",
   generationConfig: { temperature: 0.7, topP: 0.8 }
 });
 
@@ -20,7 +19,7 @@ export const generatePlan = async (data: {
   try {
     const prompt = `You are VANN BANN AI, an infinite intelligence architect. 
     User Goal: ${data.goal}. Time: ${data.time} mins. 
-    Overcome: ${data.weakness}. Expertise: ${data.expertise}. 
+    Overcome: ${data.weakness}. Expertise: ${data.expertise}. Energy Level: ${data.energy}.
     Create a deep-focus execution plan with timestamps. 
     Use a professional, motivating tone.`;
 
